@@ -26,7 +26,7 @@ test('error', () => {
 ```
 创建cli1.test.js
 ```
-test('cli2', () => {
+test('cli1', () => {
   expect(2 + 2).toBe(4)
 })
 ```
@@ -43,6 +43,17 @@ test('cli2', () => {
 
 我们将cli.test.js的任意一个修改成错误的，这个时候只有一个报错了，如果继续修改，还是把测试用例全部都跑一遍，当你的测试用例很多的时候，运行时间也就越久，我们需要 Jest 只针对没有通过测试的用例去运行。
 
+#### a:运行所有注册的测试用例
+package.json
+```
+{
+  "scripts": {
+    "test": "jest --watchAll",
+    "coverage": "jest --coverage"
+  }
+}
+```
+当jest配置--watchAll时就是默认的a模式
 #### f:只会去跑之前没有通过的测试
 
 这个时候只要我们在控制台按下f就可以了
@@ -56,3 +67,36 @@ test('cli2', () => {
 如果要退出f这个模式，只需要再按一下f
 
 #### o:只会测试当前改变的代码
+这个功能必须配合git使用。
+
+我们先将之前修改的代码进行提交
+
+然后进行修改cli1.test.js
+
+运行`npm run test`再按下o
+
+你会发现它只测试了cli1.test.js
+
+再将改动撤回，它会提示No tests found related to files changed since last commit.
+
+因为没有文件进行改动。
+
+所以o模式的改动是对比上次Git 提交的改动，从而测试改动过的文件
+
+还有一种方式，就是修改package.json
+```
+{
+  "scripts": {
+    "test": "jest --watch",
+    "coverage": "jest --coverage"
+  }
+}
+```
+将 --watchAll 改为 --watch，默认进入 o 模式
+#### t：按正则表达式过滤测试用例的名字来进行测试
+我们运行`npm run test` 按下t,然后我们输入`error`然后我们就会发现只测试了`error`这个测试用例，其他的都被跳过了
+#### p:按正则表达式过滤测试文件名来进行测试
+我们运行`npm run test` 按下p,然后我们输入`cli`然后我们就会发现只测试了`cli.test.js`这个文件，其他的文件都被跳过了
+> 注意：这里t模式和p模式可以同时存在。
+#### q：就是直接退出对代码的监控
+#### enter：重新运行测试
