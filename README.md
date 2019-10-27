@@ -4,7 +4,8 @@
 目录:
 1. [自动化测试产生的背景及原理](https://github.com/ChunchunIsMe/LearningJest/tree/master/demo1 '自动化测试产生的背景及原理')
 2. [Jest的简单配置](https://github.com/ChunchunIsMe/LearningJest/tree/master/demo2 '使用Jest修改自动化测试样例')
-2. [Jest中的匹配器](https://github.com/ChunchunIsMe/LearningJest/tree/master/demo3 '使用Jest修改自动化测试样例')
+3. [Jest中的匹配器](https://github.com/ChunchunIsMe/LearningJest/tree/master/demo3 'Jest中的匹配器')
+3. [Jest命令行工具的使用](https://github.com/ChunchunIsMe/LearningJest/tree/master/demo4 'Jest命令行工具的使用')
 
 ## 前端自动化测试框架
 测试框架给了我们一个包含很多工具的库，同时还给我们一个测试的运行器
