@@ -33,12 +33,19 @@ test('cli1', () => {
 ### Jest命令行
 运行`npm run test`，会有一些命令，如：
 > Watch Usage
+
 > › Press a to run all tests.
+
 > › Press f to run only failed tests.
+
 > › Press o to only run tests related to changed files.
+
 > › Press p to filter by a filename regex pattern.
+
 > › Press t to filter by a test name regex pattern.
+
 > › Press q to quit watch mode.
+
 > › Press Enter to trigger a test run.
 
 我们将cli.test.js的任意一个修改成错误的，这个时候只有一个报错了，如果继续修改，还是把测试用例全部都跑一遍，当你的测试用例很多的时候，运行时间也就越久，我们需要 Jest 只针对没有通过测试的用例去运行。
